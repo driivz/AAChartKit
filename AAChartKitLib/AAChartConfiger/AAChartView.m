@@ -323,7 +323,6 @@
             NSString *propName = [NSString stringWithUTF8String:property_getName(prop)];
             id value = [obj valueForKey:propName];
             if (value == nil) {
-                value = [NSNull null];
                 continue;
             } else {
                 value = [self getObjectInternal:value];

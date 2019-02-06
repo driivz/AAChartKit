@@ -37,15 +37,16 @@
 #define AAObject(objectName) [[objectName alloc]init]
 
 
-#define AAPropStatementAndPropSetFuncStatement(propertyModifier,className, propertyPointerType, propertyName)           \
-@property(nonatomic,propertyModifier)propertyPointerType  propertyName;                                                 \
+#define AAPropStatementAndPropSetFuncStatement(propertyModifier, className, propertyPointerType, propertyName)           \
+@property(nonatomic,propertyModifier)propertyPointerType propertyName;                                                 \
 - (className * (^) (propertyPointerType propertyName)) propertyName##Set;
 
 #define AAPropSetFuncImplementation(className, propertyPointerType, propertyName)                                       \
 - (className * (^) (propertyPointerType propertyName))propertyName##Set{                                                \
+__weak typeof(self) weak = self;                                                                                        \
 return ^(propertyPointerType propertyName) {                                                                            \
-_##propertyName = propertyName;                                                                                         \
-return self;                                                                                                            \
+weak.propertyName = propertyName;                                                                                       \
+return weak;                                                                                                            \
 };                                                                                                                      \
 }
 

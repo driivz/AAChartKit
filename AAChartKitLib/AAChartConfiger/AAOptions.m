@@ -216,7 +216,7 @@ AAPropSetFuncImplementation(AAOptions, NSString      *, zoomResetButtonText); //
     
     AAChartType chartType = aaChartModel.chartType;
     
-    AADataLabels *aaDataLabels;
+    AADataLabels *aaDataLabels = AAObject(AADataLabels);
     if (aaChartModel.dataLabelEnabled == true) {
         aaDataLabels = (AAObject(AADataLabels)
                         .enabledSet(aaChartModel.dataLabelEnabled)

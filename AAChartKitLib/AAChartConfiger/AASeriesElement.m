@@ -59,5 +59,6 @@ AAPropSetFuncImplementation(AASeriesElement, NSNumber *, yAxis);
 AAPropSetFuncImplementation(AASeriesElement, AADataLabels*, dataLabels);
 AAPropSetFuncImplementation(AASeriesElement, id        , step);//是否转变为直方折线图
 AAPropSetFuncImplementation(AASeriesElement, NSDictionary *, states);
+AAPropSetFuncImplementation(AASeriesElement, id        , colorByPoint);//When using automatic point colors pulled from the
 
 @end
