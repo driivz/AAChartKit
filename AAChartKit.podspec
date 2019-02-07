@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
     s.homepage     = 'https://github.com/AAChartModel/AAChartKit'
     s.license      = { :type => "MIT", :file => 'LICENSE' }
     s.authors      = {'An An' => '18256973864@163.com'}
-    s.platform     = :ios, '7.0'
+    s.platform     = :ios, '9.0'
     s.source       = {:git => 'https://github.com/AAChartModel/AAChartKit.git', :tag => s.version}
     s.social_media_url = 'https://github.com/AAChartModel'
     s.source_files = 'AAChartKitLib/**/*.{h,m}'
@@ -23,5 +23,5 @@ Pod::Spec.new do |s|
     s.prefix_header_contents = '#import "AAGlobalMacro.h"'
     s.requires_arc = true
     s.ios.frameworks = 'UIKit'
-    s.ios.deployment_target = '7.0'
+    s.ios.deployment_target = '9.0'
   end
