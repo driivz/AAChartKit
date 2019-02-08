@@ -59,7 +59,7 @@
                             }];
     
     
-    NSDictionary *drilldown = @{
+    __unused NSDictionary *drilldown = @{
                                 @"series": @[@{
                                                  @"name": @"Microsoft Internet Explorer",
                                                  @"id": @"Microsoft Internet Explorer",

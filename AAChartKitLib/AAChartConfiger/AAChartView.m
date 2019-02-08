@@ -128,10 +128,10 @@
 
 - (NSURLRequest *)getJavaScriptFileURLRequest {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *webPath = [bundle pathForResource:@"AAChartView" ofType:@"html" inDirectory:@"AAJSFiles.bundle"];
-    NSURL *webURL = [NSURL fileURLWithPath:webPath];
-    NSURLRequest *URLRequest = [[NSURLRequest alloc] initWithURL:webURL];
-    return URLRequest;
+    NSString *webPath = [bundle pathForResource:NSStringFromClass([self class])
+                                         ofType:@"html" inDirectory:@"AAJSFiles.bundle"];
+    
+    return [[NSURLRequest alloc] initWithURL:[NSURL fileURLWithPath:webPath]];
 }
 
 - (void)configureTheOptionsJsonStringWithAAOptions:(AAOptions *)options {

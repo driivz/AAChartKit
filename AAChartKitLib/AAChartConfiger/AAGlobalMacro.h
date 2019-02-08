@@ -33,6 +33,7 @@
 #ifndef AAGlobalMacro_h
 #define AAGlobalMacro_h
 
+#import <Foundation/Foundation.h>
 
 #define AAObject(objectName) [[objectName alloc]init]
 

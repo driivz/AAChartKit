@@ -919,72 +919,72 @@
 
     return options2;
     
-    //Method 3
-    AAOptions *options3 = (id)@{
-                            @"chart": @{
-                                    @"type": @"column"
-                                    },
-                            @"title": @{
-                                    @"text": @"Stacked column chart"
-                                    },
-                            @"xAxis": @{
-                                    @"categories": @[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"]
-                                    },
-                            @"yAxis": @{
-                                    @"min": @0,
-                                    @"title": @{
-                                            @"text": @"Total fruit consumption"
-                                            },
-                                    @"stackLabels": @{
-                                            @"enabled": @(true),
-                                            @"style": @{
-                                                    @"fontWeight": @"bold",
-                                                    }
-                                            }
-                                    },
-                            @"legend": @{
-                                    @"align": @"right",
-                                    @"x": @-30,
-                                    @"verticalAlign": @"top",
-                                    @"y": @25,
-                                    @"floating": @(true),
-                                    
-                                    @"borderColor": @"#CCC",
-                                    @"borderWidth": @1,
-                                    @"shadow": @(false)
-                                    },
-                            @"tooltip": @{
-                                    @"headerFormat": @"<b>{point.x}</b><br/>",
-                                    @"pointFormat": @"{series.name}: {point.y}<br/>Total: {point.stackTotal}"
-                                    },
-                            @"plotOptions": @{
-                                    @"series":@{
-                                            @"animation":@{
-                                                    @"easing":@(AAChartAnimationBounce),
-                                                    @"duration":@1000
-                                                    }
-                                            },
-                                    @"column": @{
-                                            @"stacking": @"normal",
-                                            @"dataLabels": @{
-                                                    @"enabled": @(true),
-                                                    
-                                                    }
-                                            }
-                                    },
-                            @"series": @[@{
-                                             @"name": @"John",
-                                             @"data": @[@5, @3, @4, @7, @2]
-                                             }, @{
-                                             @"name": @"Jane",
-                                             @"data": @[@2, @2, @3, @2, @1]
-                                             }, @{
-                                             @"name": @"Joe",
-                                             @"data": @[@3, @4, @4, @2, @5]
-                                             }]
-                            };
-    
-    return options3;
+//    //Method 3
+//    AAOptions *options3 = (id)@{
+//                            @"chart": @{
+//                                    @"type": @"column"
+//                                    },
+//                            @"title": @{
+//                                    @"text": @"Stacked column chart"
+//                                    },
+//                            @"xAxis": @{
+//                                    @"categories": @[@"Apples", @"Oranges", @"Pears", @"Grapes", @"Bananas"]
+//                                    },
+//                            @"yAxis": @{
+//                                    @"min": @0,
+//                                    @"title": @{
+//                                            @"text": @"Total fruit consumption"
+//                                            },
+//                                    @"stackLabels": @{
+//                                            @"enabled": @(true),
+//                                            @"style": @{
+//                                                    @"fontWeight": @"bold",
+//                                                    }
+//                                            }
+//                                    },
+//                            @"legend": @{
+//                                    @"align": @"right",
+//                                    @"x": @-30,
+//                                    @"verticalAlign": @"top",
+//                                    @"y": @25,
+//                                    @"floating": @(true),
+//
+//                                    @"borderColor": @"#CCC",
+//                                    @"borderWidth": @1,
+//                                    @"shadow": @(false)
+//                                    },
+//                            @"tooltip": @{
+//                                    @"headerFormat": @"<b>{point.x}</b><br/>",
+//                                    @"pointFormat": @"{series.name}: {point.y}<br/>Total: {point.stackTotal}"
+//                                    },
+//                            @"plotOptions": @{
+//                                    @"series":@{
+//                                            @"animation":@{
+//                                                    @"easing":@(AAChartAnimationBounce),
+//                                                    @"duration":@1000
+//                                                    }
+//                                            },
+//                                    @"column": @{
+//                                            @"stacking": @"normal",
+//                                            @"dataLabels": @{
+//                                                    @"enabled": @(true),
+//
+//                                                    }
+//                                            }
+//                                    },
+//                            @"series": @[@{
+//                                             @"name": @"John",
+//                                             @"data": @[@5, @3, @4, @7, @2]
+//                                             }, @{
+//                                             @"name": @"Jane",
+//                                             @"data": @[@2, @2, @3, @2, @1]
+//                                             }, @{
+//                                             @"name": @"Joe",
+//                                             @"data": @[@3, @4, @4, @2, @5]
+//                                             }]
+//                            };
+//
+//    return options3;
 }
 
 - (AAOptions *)specialStyleStepLineChart {
@@ -1085,154 +1085,154 @@
     aaOptions.xAxis = (id)xAxisDic;
     return aaOptions;
     
- //Method 2
-  NSDictionary *aaOptions2 = @{
-                   @"title": @false,
-                   @"credits": @false,
-                   @"chart": @{
-                           @"type": @"line",
-                           @"backgroundColor": @"#ffffff"
-                           },
-                   @"plotOptions": @{
-                           @"series":@{
-                                   @"animation":@{
-                                           @"easing":@(AAChartAnimationLinear),
-                                           @"duration":@1000
-                                           }
-                                   },
-                           @"line": @{
-                                   @"color": @"#003386",
-                                   @"lineWidth": @1,
-                                   @"dataLabels": @{
-                                           @"enabled": @false,
-                                           @"backgroundColor": @"rgba(255, 255, 255, 1.0)",
-                                           @"format": @"{y} HK$",
-                                           @"zIndex": @3
-                                           },
-                                   @"enableMouseTracking": @true,
-                                   @"marker": @{
-                                           @"fillColor": @"white",
-                                           @"symbol": @"circle",
-                                           @"lineWidth": @1,
-                                           @"lineColor": @"#003386"
-                                           }
-                                   }
-                           },
-                   @"legend": @{
-                           @"layout": @"horizontal",
-                           @"align": @"left",
-                           @"verticalAlign": @"bottom"
-                           },
-                   @"tooltip": @{
-                           @"shared": @true,
-                           @"shadow": @false,
-                           @"crosshairs": @true,
-                           @"backgroundColor": @"#fff",
-                           @"borderColor": @"#5177b4",
-                           @"borderWidth": @1,
-                           @"xDateFormat": @"%Y-%m-%d",
-                           @"valueSuffix": @"  HK$"
-                           },
-                   @"xAxis": @{
-                           @"type": @"datetime",
-                           @"dateTimeLabelFormats": @{
-                                   @"month": @"%e.%m.%y"
-                                   }
-                           },
-                   @"yAxis": @{
-                           @"title": @false,
-                           @"tickPixelInterval": @40,
-                           @"alternateGridColor": @"#fafafa",
-                           @"gridLineColor": @"#f0f0f0",
-                           @"gridLineDashStyle": @"dash",
-                           @"labels": @{
-                                   @"enabled": @true,
-                                   @"format": @"{value} HK$"
-                                   },
-                           @"min": @0,
-                           @"showFirstLabel": @false
-                           },
-                   @"series": @[@{
-                                     @"zIndex": @2,
-                                     @"name": @"價格",
-                                     @"color": @"#003386",
-                                     @"step": @"left",
-                                     @"data": @[
-                                             @[@1472774400000, @389],
-                                             @[@1475539200000, @350.1],
-                                             @[@1475539200000, @350.1],
-                                             @[@1476662400000, @389],
-                                             @[@1479945600000, @233.4],
-                                             @[@1480377600000, @389],
-                                             @[@1482192000000, @233.4],
-                                             @[@1483574400000, @389],
-                                             @[@1485907200000, @233.4],
-                                             @[@1486598400000, @389],
-                                             @[@1493164800000, @233.4],
-                                             @[@1494288000000, @389],
-                                             @[@1500422400000, @291.75],
-                                             @[@1501632000000, @389],
-                                             @[@1508284800000, @155.6],
-                                             @[@1509408000000, @389],
-                                             @[@1511222400000, @194.5],
-                                             @[@1511827200000, @389],
-                                             @[@1511913600000, @194.5],
-                                             @[@1513123200000, @389],
-                                             @[@1514160000000, @194.5],
-                                             @[@1515456000000, @389],
-                                             @[@1518048000000, @194.5],
-                                             @[@1519171200000, @389],
-                                             @[@1520467200000, @155.6],
-                                             @[@1521331200000, @389],
-                                             @[@1528416000000, @155.6],
-                                             @[@1529280000000, @389],
-                                             @[@1531353600000, @194.5],
-                                             @[@1532052447381, @194.5]
-                                             ]
-                                     }, @{
-                                     @"zIndex": @1,
-                                     @"name": @"PS+",
-                                     @"color": @"#FFC535",
-                                     @"marker": @{
-                                             @"lineColor": @"#FFC535"
-                                             },
-                                     @"step": @"left",
-                                     @"data": @[
-                                             @[@1472774400000, @389],
-                                             @[@1475539200000, @311.2],
-                                             @[@1475539200000, @311.2],
-                                             @[@1476662400000, @389],
-                                             @[@1479945600000, @233.4],
-                                             @[@1480377600000, @389],
-                                             @[@1482192000000, @233.4],
-                                             @[@1483574400000, @389],
-                                             @[@1485907200000, @194.5],
-                                             @[@1486598400000, @389],
-                                             @[@1493164800000, @194.5],
-                                             @[@1494288000000, @389],
-                                             @[@1500422400000, @194.5],
-                                             @[@1501632000000, @389],
-                                             @[@1508284800000, @155.6],
-                                             @[@1509408000000, @389],
-                                             @[@1511222400000, @155.6],
-                                             @[@1511827200000, @389],
-                                             @[@1511913600000, @155.6],
-                                             @[@1513123200000, @389],
-                                             @[@1514160000000, @155.6],
-                                             @[@1515456000000, @389],
-                                             @[@1518048000000, @155.6],
-                                             @[@1519171200000, @389],
-                                             @[@1520467200000, @155.6],
-                                             @[@1521331200000, @389],
-                                             @[@1528416000000, @155.6],
-                                             @[@1529280000000, @389],
-                                             @[@1531353600000, @155.6],
-                                             @[@1532052447381, @155.6]
-                                             ]
-                                     }]
-                   };
-
-    return aaOptions2;
+// //Method 2
+//  NSDictionary *aaOptions2 = @{
+//                   @"title": @false,
+//                   @"credits": @false,
+//                   @"chart": @{
+//                           @"type": @"line",
+//                           @"backgroundColor": @"#ffffff"
+//                           },
+//                   @"plotOptions": @{
+//                           @"series":@{
+//                                   @"animation":@{
+//                                           @"easing":@(AAChartAnimationLinear),
+//                                           @"duration":@1000
+//                                           }
+//                                   },
+//                           @"line": @{
+//                                   @"color": @"#003386",
+//                                   @"lineWidth": @1,
+//                                   @"dataLabels": @{
+//                                           @"enabled": @false,
+//                                           @"backgroundColor": @"rgba(255, 255, 255, 1.0)",
+//                                           @"format": @"{y} HK$",
+//                                           @"zIndex": @3
+//                                           },
+//                                   @"enableMouseTracking": @true,
+//                                   @"marker": @{
+//                                           @"fillColor": @"white",
+//                                           @"symbol": @"circle",
+//                                           @"lineWidth": @1,
+//                                           @"lineColor": @"#003386"
+//                                           }
+//                                   }
+//                           },
+//                   @"legend": @{
+//                           @"layout": @"horizontal",
+//                           @"align": @"left",
+//                           @"verticalAlign": @"bottom"
+//                           },
+//                   @"tooltip": @{
+//                           @"shared": @true,
+//                           @"shadow": @false,
+//                           @"crosshairs": @true,
+//                           @"backgroundColor": @"#fff",
+//                           @"borderColor": @"#5177b4",
+//                           @"borderWidth": @1,
+//                           @"xDateFormat": @"%Y-%m-%d",
+//                           @"valueSuffix": @"  HK$"
+//                           },
+//                   @"xAxis": @{
+//                           @"type": @"datetime",
+//                           @"dateTimeLabelFormats": @{
+//                                   @"month": @"%e.%m.%y"
+//                                   }
+//                           },
+//                   @"yAxis": @{
+//                           @"title": @false,
+//                           @"tickPixelInterval": @40,
+//                           @"alternateGridColor": @"#fafafa",
+//                           @"gridLineColor": @"#f0f0f0",
+//                           @"gridLineDashStyle": @"dash",
+//                           @"labels": @{
+//                                   @"enabled": @true,
+//                                   @"format": @"{value} HK$"
+//                                   },
+//                           @"min": @0,
+//                           @"showFirstLabel": @false
+//                           },
+//                   @"series": @[@{
+//                                     @"zIndex": @2,
+//                                     @"name": @"價格",
+//                                     @"color": @"#003386",
+//                                     @"step": @"left",
+//                                     @"data": @[
+//                                             @[@1472774400000, @389],
+//                                             @[@1475539200000, @350.1],
+//                                             @[@1475539200000, @350.1],
+//                                             @[@1476662400000, @389],
+//                                             @[@1479945600000, @233.4],
+//                                             @[@1480377600000, @389],
+//                                             @[@1482192000000, @233.4],
+//                                             @[@1483574400000, @389],
+//                                             @[@1485907200000, @233.4],
+//                                             @[@1486598400000, @389],
+//                                             @[@1493164800000, @233.4],
+//                                             @[@1494288000000, @389],
+//                                             @[@1500422400000, @291.75],
+//                                             @[@1501632000000, @389],
+//                                             @[@1508284800000, @155.6],
+//                                             @[@1509408000000, @389],
+//                                             @[@1511222400000, @194.5],
+//                                             @[@1511827200000, @389],
+//                                             @[@1511913600000, @194.5],
+//                                             @[@1513123200000, @389],
+//                                             @[@1514160000000, @194.5],
+//                                             @[@1515456000000, @389],
+//                                             @[@1518048000000, @194.5],
+//                                             @[@1519171200000, @389],
+//                                             @[@1520467200000, @155.6],
+//                                             @[@1521331200000, @389],
+//                                             @[@1528416000000, @155.6],
+//                                             @[@1529280000000, @389],
+//                                             @[@1531353600000, @194.5],
+//                                             @[@1532052447381, @194.5]
+//                                             ]
+//                                     }, @{
+//                                     @"zIndex": @1,
+//                                     @"name": @"PS+",
+//                                     @"color": @"#FFC535",
+//                                     @"marker": @{
+//                                             @"lineColor": @"#FFC535"
+//                                             },
+//                                     @"step": @"left",
+//                                     @"data": @[
+//                                             @[@1472774400000, @389],
+//                                             @[@1475539200000, @311.2],
+//                                             @[@1475539200000, @311.2],
+//                                             @[@1476662400000, @389],
+//                                             @[@1479945600000, @233.4],
+//                                             @[@1480377600000, @389],
+//                                             @[@1482192000000, @233.4],
+//                                             @[@1483574400000, @389],
+//                                             @[@1485907200000, @194.5],
+//                                             @[@1486598400000, @389],
+//                                             @[@1493164800000, @194.5],
+//                                             @[@1494288000000, @389],
+//                                             @[@1500422400000, @194.5],
+//                                             @[@1501632000000, @389],
+//                                             @[@1508284800000, @155.6],
+//                                             @[@1509408000000, @389],
+//                                             @[@1511222400000, @155.6],
+//                                             @[@1511827200000, @389],
+//                                             @[@1511913600000, @155.6],
+//                                             @[@1513123200000, @389],
+//                                             @[@1514160000000, @155.6],
+//                                             @[@1515456000000, @389],
+//                                             @[@1518048000000, @155.6],
+//                                             @[@1519171200000, @389],
+//                                             @[@1520467200000, @155.6],
+//                                             @[@1521331200000, @389],
+//                                             @[@1528416000000, @155.6],
+//                                             @[@1529280000000, @389],
+//                                             @[@1531353600000, @155.6],
+//                                             @[@1532052447381, @155.6]
+//                                             ]
+//                                     }]
+//                   };
+//
+//    return aaOptions2;
 }
 
 //- (NSTimeInterval)pleaseInsertStarTime:(NSString *)starTime andInsertEndTime:(NSString *)endTime{

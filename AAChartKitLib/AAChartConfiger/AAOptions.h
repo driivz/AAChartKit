@@ -31,7 +31,7 @@
  */
 
 
-#import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 
 #import "AAChart.h"
 #import "AAAnimation.h"

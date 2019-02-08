@@ -30,7 +30,7 @@
  
  */
 
-#import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 
 @interface AAPlotLinesElement : NSObject
 

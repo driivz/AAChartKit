@@ -30,7 +30,6 @@
  
  */
 
-#import "AAGlobalMacro.h"
 #import "AAChartView.h"
 
 

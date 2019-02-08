@@ -31,9 +31,9 @@
  
  */
 
-#import <Foundation/Foundation.h>
+#import "AAGlobalMacro.h"
 
-@class AAMarker,AAAnimation;
+@class AAMarker, AAAnimation;
 
 @interface AASeries : NSObject
 
