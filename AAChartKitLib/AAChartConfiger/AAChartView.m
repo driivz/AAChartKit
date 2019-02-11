@@ -48,11 +48,11 @@
 
 #define kDevice_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
-@interface AAChartView()<WKNavigationDelegate,UIWebViewDelegate> {
-    UIWebView *_uiWebView;
-    WKWebView *_wkWebView;
-    NSString  *_optionJson;
-}
+@interface AAChartView() <WKNavigationDelegate, UIWebViewDelegate>
+
+@property (nonatomic, weak) UIWebView *uiWebView;
+@property (nonatomic, weak) WKWebView *wkWebView;
+@property (nonatomic, copy) NSString  *optionJson;
 
 @end
 
@@ -77,17 +77,19 @@
 - (void)setUpBasicWebView {
     
     if (AASYSTEM_VERSION >= 9.0) {
-        _wkWebView = [[WKWebView alloc] init];
-        _wkWebView.navigationDelegate = self;
-        _wkWebView.backgroundColor = [UIColor whiteColor];
-        [self addSubview:_wkWebView];
+        WKWebView *wkWebView = [[WKWebView alloc] init];
+        wkWebView.navigationDelegate = self;
+        wkWebView.backgroundColor = [UIColor whiteColor];
+        [self addSubview:wkWebView];
+        _wkWebView = wkWebView;
         _wkWebView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addConstraints:[self configureTheConstraintArrayWithItem:_wkWebView toItem:self]];
     } else {
-        _uiWebView = [[UIWebView alloc] init];
-        _uiWebView.delegate = self;
-        _uiWebView.backgroundColor = [UIColor whiteColor];
-        [self addSubview:_uiWebView];
+        UIWebView *uiWebView = [[UIWebView alloc] init];
+        uiWebView.delegate = self;
+        uiWebView.backgroundColor = [UIColor whiteColor];
+        [self addSubview:uiWebView];
+        _uiWebView = uiWebView;
         _uiWebView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addConstraints:[self configureTheConstraintArrayWithItem:_uiWebView toItem:self]];
     }
