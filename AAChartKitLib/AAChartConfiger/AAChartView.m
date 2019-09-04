@@ -48,9 +48,8 @@
 
 #define kDevice_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
-@interface AAChartView() <WKNavigationDelegate, UIWebViewDelegate>
+@interface AAChartView() <WKNavigationDelegate>
 
-@property (nonatomic, weak) UIWebView *uiWebView;
 @property (nonatomic, weak) WKWebView *wkWebView;
 @property (nonatomic, copy) NSString  *optionJson;
 
@@ -76,23 +75,14 @@
 
 - (void)setUpBasicWebView {
     
-    if (AASYSTEM_VERSION >= 9.0) {
-        WKWebView *wkWebView = [[WKWebView alloc] init];
-        wkWebView.navigationDelegate = self;
-        wkWebView.backgroundColor = [UIColor whiteColor];
-        [self addSubview:wkWebView];
-        _wkWebView = wkWebView;
-        _wkWebView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addConstraints:[self configureTheConstraintArrayWithItem:_wkWebView toItem:self]];
-    } else {
-        UIWebView *uiWebView = [[UIWebView alloc] init];
-        uiWebView.delegate = self;
-        uiWebView.backgroundColor = [UIColor whiteColor];
-        [self addSubview:uiWebView];
-        _uiWebView = uiWebView;
-        _uiWebView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addConstraints:[self configureTheConstraintArrayWithItem:_uiWebView toItem:self]];
-    }
+    WKWebView *wkWebView = [[WKWebView alloc] init];
+    wkWebView.navigationDelegate = self;
+    wkWebView.backgroundColor = [UIColor whiteColor];
+    [self addSubview:wkWebView];
+    
+    _wkWebView = wkWebView;
+    _wkWebView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addConstraints:[self configureTheConstraintArrayWithItem:_wkWebView toItem:self]];
 }
 
 - (NSArray *)configureTheConstraintArrayWithItem:(UIView *)childView toItem:(UIView *)fatherView{
@@ -181,11 +171,7 @@
     if (!_optionJson) {
         [self configureTheOptionsJsonStringWithAAOptions:options];
         NSURLRequest *URLRequest = [self getJavaScriptFileURLRequest];
-        if (AASYSTEM_VERSION >= 9.0) {
-            [_wkWebView loadRequest:URLRequest];
-        } else {
-            [_uiWebView loadRequest:URLRequest];
-        }
+        [_wkWebView loadRequest:URLRequest];
     } else {
         [self aa_refreshChartWithOptions:options];
     }
@@ -215,12 +201,6 @@
     [self.delegate AAChartViewDidFinishLoad];
 }
 
-//UIWebView did finish load
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self drawChart];
-    [self.delegate AAChartViewDidFinishLoad];
-}
-
 - (void)aa_showTheSeriesElementContentWithSeriesElementIndex:(NSInteger)elementIndex {
     NSString *javaScriptStr = [NSString stringWithFormat:@"showTheSeriesElementContentWithIndex(%ld)",(long)elementIndex];
     [self evaluateJavaScriptWithFunctionNameString:javaScriptStr];
@@ -232,26 +212,18 @@
 }
 
 - (void)evaluateJavaScriptWithFunctionNameString:(NSString *)functionNameStr {
-    if (AASYSTEM_VERSION >= 9.0) {
-        [_wkWebView  evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
-            if (error) {
-                AADetailLog(@"☠️☠️💀☠️☠️WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",error);
-            }
-        }];
-    } else {
-        [_uiWebView  stringByEvaluatingJavaScriptFromString:functionNameStr];
-    }
+    [_wkWebView  evaluateJavaScript:functionNameStr completionHandler:^(id item, NSError * _Nullable error) {
+        if (error) {
+            AADetailLog(@"☠️☠️💀☠️☠️WARNING!!!!! THERE ARE SOME ERROR INFOMATION_______%@",error);
+        }
+    }];
 }
 
 #pragma mark -- setter method
 
 - (void)setScrollEnabled:(BOOL)scrollEnabled {
     _scrollEnabled = scrollEnabled;
-    if (AASYSTEM_VERSION >= 9.0) {
-        _wkWebView.scrollView.scrollEnabled = _scrollEnabled;
-    } else {
-        _uiWebView.scrollView.scrollEnabled = _scrollEnabled;
-    }
+    _wkWebView.scrollView.scrollEnabled = _scrollEnabled;
 }
 
 - (void)setContentWidth:(CGFloat)contentWidth {
@@ -282,13 +254,9 @@
     _isClearBackgroundColor = isClearBackgroundColor;
     if (_isClearBackgroundColor == YES) {
         self.backgroundColor = [UIColor clearColor];
-        if (AASYSTEM_VERSION >= 9.0) {
-            [_wkWebView setBackgroundColor:[UIColor clearColor]];
-            [_wkWebView setOpaque:NO];
-        } else {
-            [_uiWebView setBackgroundColor:[UIColor clearColor]];
-            [_uiWebView setOpaque:NO];
-        }
+        
+        [_wkWebView setBackgroundColor:[UIColor clearColor]];
+        [_wkWebView setOpaque:NO];
     }
 }
 
